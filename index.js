@@ -1,5 +1,5 @@
 const app = require('./app')
 
-app.listen(4000, ()=>{
-    console.log('Servidor corriendo en el puerto 4000')
+app.listen(app.get('port'), ()=>{
+    console.log(`${app.get('server')} corriendo en puerto: ${app.get('port')}`)
 })
