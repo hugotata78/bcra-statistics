@@ -69,12 +69,14 @@
  *         schema:
  *          type: string
  *         required: true
- *         description: Name of the currency from which you want to obtain a quote
+ *         description: Name of the currency from which you want to obtain a quote, example(oficial, blue, oficial_euro, blue_euro)
  *     responses:
  *       200:
  *          description: Ok
  *       400:
  *         description: Bad request
+ *       404:
+ *         description: Not found!
  *       500:
  *          description: Internal server error
  */

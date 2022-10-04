@@ -1,4 +1,5 @@
 const axios = require("axios")
+const { checkCurrency } = require('../helpers/checkCurrencyExists')
 require('dotenv').config()
 
 module.exports = {
@@ -32,8 +33,10 @@ module.exports = {
         try {
             const { name } = req.query
             if (!name) return res.status(400).json({ msg: 'El parametro nombre es requerido!' })
+            const currency = checkCurrency(name)
+            if (!currency) return res.status(404).json({ msg: 'No tenemos información acerca de la moneda requerida!' })
             const quotes = await axios.get('https://api.bluelytics.com.ar/v2/latest')
-            res.status(200).json(quotes.data[name])
+            res.status(200).json(quotes.data[currency])
         } catch (error) {
             res.status(500).json({ error })
         }
