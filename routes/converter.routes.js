@@ -1,8 +1,8 @@
 const { Router } = require('express')
-const { currencyConverter, convertAllcurrencies } = require('../controllers/converter.controllers')
+const { currencyConverter, getSymbols } = require('../controllers/converter.controllers')
 const router = Router()
 
-router.get('/:source/:target/:quantity', currencyConverter)
-router.get('/all/:source',convertAllcurrencies)
+router.get('/:from/:to/:amount', currencyConverter)
+router.get('/',getSymbols)
 
 module.exports = router
