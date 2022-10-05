@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 app.use(morgan('dev'))
 
+console.log(process.env.SERVER)
 //routes
 app.use('/api',indexRoutes)
 
