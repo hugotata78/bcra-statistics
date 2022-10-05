@@ -19,7 +19,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(morgan('dev'))
 
-console.log(process.env.SERVER)
+console.log(process.env.SERVER, process.env.API_KEY)
 //routes
 app.use('/api',indexRoutes)
 
