@@ -3,6 +3,6 @@ const { currencyConverter, getSymbols } = require('../controllers/converter.cont
 const router = Router()
 
 router.get('/:to/:from/:amount', currencyConverter)
-router.get('/',getSymbols)
+router.get('/symbols',getSymbols)
 
 module.exports = router
