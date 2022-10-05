@@ -12,7 +12,11 @@ app.set('server', 'Servidor')
 //middlewares
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(cors())
+const corsOptions = {
+    origin: process.env.SERVER,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+app.use(cors(corsOptions))
 app.use(morgan('dev'))
 
 console.log(process.env.SERVER)
