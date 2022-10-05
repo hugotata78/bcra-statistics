@@ -3,6 +3,7 @@ const axios = require('axios')
 const cors = require('cors')
 const morgan = require('morgan')
 const indexRoutes = require('./routes')
+const homeRoutes = require('./routes/home.routes')
 const app = express()
 
 //setting
@@ -19,8 +20,9 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(morgan('dev'))
 
-console.log(process.env.SERVER, process.env.API_KEY)
+
 //routes
+app.use('/',homeRoutes)
 app.use('/api',indexRoutes)
 
 module.exports = app
